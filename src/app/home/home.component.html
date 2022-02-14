@@ -1,0 +1,15 @@
+<div class="component-container">
+    <div class="title">City Temperature Tracker</div>
+    <div class="home-button-group">
+        <button (click)="toggleCityList()" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Display All Records
+        </button>
+        <button (click)="goToRegister()" class="btn btn-primary">Register New Temperature</button>
+    </div>
+    <div class="city-record-list" *ngIf="showCities">
+        <div *ngFor="let city of cities" class="city-record-container">
+            <div class="city-record-row">{{city.name}}: {{city.temperature}} ({{city.date}} {{city.time}}) - <a (click)="deleteCity(city.id)" class="text-danger">Delete</a></div>
+        </div>
+    </div>
+</div>
